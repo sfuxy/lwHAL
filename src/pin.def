@@ -1,0 +1,41 @@
+
+/*******************************************************************************
+*                            P I N . D E F
+********************************************************************************
+* Description:
+*   Definition file for the pin class of lwHAL.
+*
+* lwHAL (c) 2021, Silvano Furlan.
+*******************************************************************************/
+
+#ifndef lwHAL_PIN_DEF
+#define lwHAL_PIN_DEF
+
+#include <stdarg.h>
+#include <stdint.h>
+
+#include "config.h"
+
+// register class
+struct Class {
+	size_t size;
+	void * (* ctor) (void * self, va_list * app);
+	void * (* dtor) (void * self);
+  WBSIZE (* read) (const void * self, va_list * app); // read a register
+  void (* write) (const void * self, va_list * app); // write a register
+};
+
+struct Pin {
+  const void * class;
+  // methods
+  //int (* value) (const void * self, uint16_t element);
+  //int (* pin) (const void * self);
+  //char (* port) (const void * self);
+  // private variables
+  WBSIZE _value;
+  int _pin;
+  char _port;
+	const void * _link; // link to the function class
+};
+
+#endif /* lwHAL_PIN_DEF */

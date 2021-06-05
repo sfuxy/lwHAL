@@ -1,0 +1,26 @@
+
+/*******************************************************************************
+*                            G P I O . D E F
+********************************************************************************
+* Description:
+*   Definition file for the gpio class of lwHAL.
+*
+* lwHAL (c) 2021, Silvano Furlan.
+*******************************************************************************/
+
+#ifndef lwHAL_GPIO_DEF
+#define lwHAL_GPIO_DEF
+
+#include "pin.def"
+
+struct Gpio {
+  //const struct Pin _;
+  const void * class;
+  // methods
+  // private variables
+  U8 _mode;
+  U8 _speed;
+  U8 _pull;
+};
+
+#endif /* lwHAL_GPIO_DEF */
