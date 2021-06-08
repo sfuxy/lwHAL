@@ -1,6 +1,7 @@
 # lwHAL
-## A light-weight Hardware Abstraction Layer for micro-controllers
 ------------------------------------------------------------------------------------
+## A light-weight Hardware Abstraction Layer for micro-controllers
+
 
 ### Description
 
@@ -20,7 +21,8 @@ In this initial implementation, we focus on providing abstraction to the GPIOs f
 
 We are currently working on extending the support to the timers and add defensive methods against errors.
 
-#### Folder structure
+
+### Folder structure
 
   /docs   --> document folder with reference manual 
   
@@ -29,15 +31,20 @@ We are currently working on extending the support to the timers and add defensiv
   /src    --> folder with the source code of the template lwHAL used for the ports 
   
 
-#### Quick overview
+
+### Quick overview
 
 Run the makefile in /src to test the lwHAL
+
 Run the makefile in /ports/stm32f4 to test the STM32F4 lwHAL port
 
-#### Last log
+
+### Last log
 
 Added support to gpio set(), toggle() and link() for STM32F4 port.
 All tests passed successfully.
+
+
 
 ------------------------------------------------------------------------------------
 MIT license.
