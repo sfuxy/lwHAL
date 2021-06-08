@@ -22,9 +22,9 @@ We are currently working on extending the support to the timers and add defensiv
 
 #### Folder structure
 
-  /docs   --> document folder with reference manual
-  /ports  --> folder with the port to the target micro-controllers
-  /src    --> folder with the source code of the template lwHAL used for the ports
+  /docs   --> document folder with reference manual \\
+  /ports  --> folder with the port to the target micro-controllers \\
+  /src    --> folder with the source code of the template lwHAL used for the ports \\
 
 #### Quick overview
 
