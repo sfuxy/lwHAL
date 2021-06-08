@@ -55,6 +55,7 @@ extern const void * stm32f4_Gpio;
 #define GPIO_PULL_DOWN                      STM32F4_GPIOx_PUPDR_PULLDOWN
 
 
+
 //GPIOC->MODER &= ~(GPIOx_MODER_INPUT << (PIN_8 * 2)); // port mode register
 //GPIOC->OTYPER &= ~(GPIOx_OTYPE_PP << (PIN_8)); // output type register
 //GPIOC->OSPEEDR &= ~(GPIOx_OSPEEDR_LOW << (PIN_8 * 2));

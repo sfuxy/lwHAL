@@ -36,7 +36,7 @@ struct Function {
 // pin class
 struct Pin {
   const void * class;
-	//const struct Class * _;
+	//const struct Class _;
   // methods
   //int (* value) (const void * self, uint16_t element);
   //int (* pin) (const void * self);

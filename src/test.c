@@ -30,6 +30,7 @@
    write(gpio_A1, GPIO_MODE, GPIO_MODE_OUTPUT | GPIO_TYPE_PP);
    write(gpio_A1, GPIO_SPEED, GPIO_SPEED_LOW);
    write(gpio_A1, GPIO_PULL, GPIO_PULL_NOPULL);
+   write(gpio_A1, GPIO_SET, GPIO_PIN_SET);
 
    write(pin_A1, 1);
 

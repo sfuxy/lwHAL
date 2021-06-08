@@ -19,8 +19,8 @@ stm32f4_gpio.o \
 gpio.o \
 pin.o
 
-#OPT = -O3
-OPT = -g
+OPT = -O3
+#OPT = -g
 
 CFLAGS = -Wall -Wextra -Wunused-function
 CFLAGS += $(OPT)
@@ -49,6 +49,3 @@ prof:
 clean:
 	rm $(OBJECTS)
 	@echo " <Objects files removed!> "
-
-
-	-c $(INCLUDES) $(SOURCES) $(CFLAGS)

@@ -18,5 +18,11 @@
 #define U32    uint32_t
 #define WBSIZE  U16 // microcontroller word byte size (i.e. 32-bits, 16-bits, 8-bits,....)
 
+//#define STM32F4xx // un-comment to enable the STM32F4 port configuration
+//#define PIC16Fxx
+
+ #if defined (STM32F4xx) || defined (PIC16Fxx)
+  #define PORT
+ #endif
 
  #endif /* lwHAL_CONFIG_H */

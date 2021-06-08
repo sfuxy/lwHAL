@@ -18,7 +18,7 @@ struct Gpio {
   //const void * class;
   const struct Function _;
   // methods
-  //void (* set)(const void * self, int v);
+  void (* set)(const void * self, int v);
   void (* toggle)(const void * self);
   // private variables
   U8 _mode;

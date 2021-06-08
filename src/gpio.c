@@ -41,7 +41,8 @@
  void Gpio_write (const void * _self, va_list * app)
  {
    struct Gpio * self = _self;
-   int reg = va_arg(*app, int);
+   const struct Gpio * const * cpp;
+   int reg = va_arg(*app, int), v;
    switch(reg) {
      case GPIO_MODE:
       self -> _mode = (U8) va_arg(*app, int);
@@ -52,14 +53,13 @@
      case GPIO_PULL:
       self -> _pull = (U8) va_arg(*app, int);
       break;
-      /*
      case GPIO_SET:
-      int v = va_arg(*app, int);
-      const struct Gpio * const * cpp = (struct Gpio *)(_self);
+      v = va_arg(*app, int);
+      cpp = (struct Gpio *)(_self);
       assert((* cpp) -> set);
       (* cpp) -> set(_self, v);
       break;
-      */
+
    }
  }
 
@@ -75,7 +75,7 @@
      assert((* cpp) -> toggle);
       (* cpp) -> toggle(self->_func);
    }
-   
+
    //= va_arg(ap, (struct Pin *));
    //return 0; //self->_;
  }
@@ -86,13 +86,13 @@
 
  }
 
-/*
+
  static void Gpio_set (const void * _self, int v)
  {
    // TODO: add set code for GPIO specific for micro-controller port
-   printf("\n gpio set ()"); getchar();
+   printf("\n gpio set () = %d", v); getchar();
  }
- */
+
 
  static void Gpio_toggle (const void * _self)
  {
@@ -110,7 +110,7 @@
    Gpio_write,
    Gpio_link,
    0, // const void * _pin
-   //Gpio_set,
+   Gpio_set,
    Gpio_toggle //void (* toggle)(const void * self);
  };
 

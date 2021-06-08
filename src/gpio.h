@@ -11,8 +11,11 @@
  #ifndef lwHAL_GPIO_H
  #define lwHAL_GPIO_H
 
+ #include "config.h"
+
  extern const void * Gpio;
 
+#ifndef PORT
  #define GPIO_MODE            (0)
  #define GPIO_SPEED           (1)
  #define GPIO_PULL            (2)
@@ -33,6 +36,10 @@
  #define GPIO_PULL_NOPULL     (0)
  #define GPIO_PULL_UP         (1)
  #define GPIO_PULL_DOWN       (2)
+
+ #define GPIO_PIN_RESET       (0)
+ #define GPIO_PIN_SET         (1)
+#endif
 
   void toggle (const void * _self, ...); // it can toggle multiple pins at once
 
