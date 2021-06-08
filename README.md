@@ -1,5 +1,4 @@
 # lwHAL
-------------------------------------------------------------------------------------
 ## A light-weight Hardware Abstraction Layer for micro-controllers
 
 
@@ -21,6 +20,7 @@ In this initial implementation, we focus on providing abstraction to the GPIOs f
 
 We are currently working on extending the support to the timers and add defensive methods against errors.
 
+------------------------------------------------------------------------------------
 
 ### Folder structure
 
