@@ -16,11 +16,14 @@
  #define GPIO_MODE            (0)
  #define GPIO_SPEED           (1)
  #define GPIO_PULL            (2)
+ #define GPIO_SET             (3)
 
  #define GPIO_MODE_INPUT      (0)
- #define GPIO_MODE_OUTPUT_PP  (1)
- #define GPIO_MODE_OUTPUT_OD  (2)
- #define GPIO_MODE_ANALOG     (3)
+ #define GPIO_MODE_OUTPUT     (1)
+ #define GPIO_MODE_ANALOG     (2)
+
+ #define GPIO_TYPE_PP         (0)
+ #define GPIO_TYPE_OD         (4)
 
  #define GPIO_SPEED_LOW       (0)
  #define GPIO_SPEED_MEDIUM    (1)
@@ -32,6 +35,10 @@
  #define GPIO_PULL_DOWN       (2)
 
   void toggle (const void * _self, ...); // it can toggle multiple pins at once
+
+  void * Gpio_ctor (void * _self, va_list * app);
+  void Gpio_write(const void * _self, va_list * app);
+
 
 
  #endif /* lwHAL_GPIO_H */

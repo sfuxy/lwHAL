@@ -25,17 +25,28 @@ struct Class {
   void (* write) (const void * self, va_list * app); // write a register
 };
 
+// function class
+struct Function {
+	//const void * class;
+	const struct Class _;
+	void (* link) (const void * self);
+	const void * _pin; // link to one or more pins class
+};
+
+// pin class
 struct Pin {
   const void * class;
+	//const struct Class * _;
   // methods
   //int (* value) (const void * self, uint16_t element);
   //int (* pin) (const void * self);
   //char (* port) (const void * self);
+
   // private variables
   WBSIZE _value;
   int _pin;
   char _port;
-	const void * _link; // link to the function class
+	const void * _func; // link to the function class
 };
 
 #endif /* lwHAL_PIN_DEF */

@@ -91,11 +91,28 @@
    return self->_port;
  }
 
+ void link (const void * _self, const void * _func)
+ {
+   struct Pin * self = _self;
+   struct Function * func = _func;
+   const struct Function * const * cp = _func;
+   self->_func = _func;
+   func->_pin = _self;
+   //assert(self && * cp && (* cp) -> link);
+   assert(* cp && (* cp) -> link);
+   (* cp) -> link(_func);
+   //(* cp) -> link(_func);
+ }
+
+ /*WEAK*/
+ /*
  void link (const void * _self, void * func)
  {
    struct Pin * self = _self;
-   self->_link = func;
+   self->_func = func;
+
  }
+ */
 
 /*
  int value (const void * _self, ...)
@@ -135,6 +152,8 @@
  static WBSIZE Pin_read(const void * _self, va_list * app)
  {
    struct Pin * self = _self;
+
+   // TODO: add specific read pin instructions depending on linked function 
    return self->_value;
  }
 
@@ -142,6 +161,10 @@
  {
    struct Pin * self = _self;
    self->_value = (WBSIZE) va_arg(*app, int);
+
+   // TODO: add specific write pin instructions depending on linked function
+   // i.e.: if digital output then set 0 or 1, if DAC analog output set the value
+
  }
 
 

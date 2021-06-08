@@ -11,10 +11,12 @@
 #ifndef lwHAL_CONFIG_H
 #define lwHAL_CONFIG_H
 
- #define U8     uint8_t
- #define U16    uint16_t
- #define U32    uint32_t
- #define WBSIZE  U16 // microcontroller word byte size (i.e. 32-bits, 16-bits, 8-bits,....)
+#define WEAK __attribute__((weak))
+
+#define U8     uint8_t
+#define U16    uint16_t
+#define U32    uint32_t
+#define WBSIZE  U16 // microcontroller word byte size (i.e. 32-bits, 16-bits, 8-bits,....)
 
 
  #endif /* lwHAL_CONFIG_H */

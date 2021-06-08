@@ -1,8 +1,3 @@
-# @Author: SIlvano
-# @Date:   2021-06-03T07:46:59-07:00
-# @Last modified by:   SIlvano
-# @Last modified time: 2021-06-05T05:05:51-07:00
-
 # makefile
 
 EXEC = lwhal
@@ -10,12 +5,12 @@ CC = gcc
 LINKER = gcc
 
 SOURCES = \
-main.c \
+test.c \
 pin.c \
 gpio.c
 
 OBJECTS = \
-main.o \
+test.o \
 pin.o \
 gpio.o
 
