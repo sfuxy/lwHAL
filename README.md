@@ -42,7 +42,7 @@ Please, contact the lwHAL project owner S.Furlan for your customization queries.
 
   /src    --> folder with the source code of the template lwHAL used for the ports
 
-#### Quick overview
+### Quick overview
 
 Run the makefile in /src to test the lwHAL
 
@@ -54,6 +54,8 @@ Run the makefile in /docs with the command 'make latexpdf; to compile the TeX. Y
 
 Tested gpio basic functions on NUCLEO-F429ZI.
 All tests passed successfully.
+
+
 
 ------------------------------------------------------------------------------------
 MIT license.
