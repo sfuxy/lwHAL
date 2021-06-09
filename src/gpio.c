@@ -44,16 +44,16 @@
    const struct Gpio * const * cpp;
    int reg = va_arg(*app, int), v;
    switch(reg) {
-     case GPIO_MODE:
+     case lwHAL_GPIO_MODE:
       self -> _mode = (U8) va_arg(*app, int);
       break;
-     case GPIO_SPEED:
+     case lwHAL_GPIO_SPEED:
       self -> _speed = (U8) va_arg(*app, int);
       break;
-     case GPIO_PULL:
+     case lwHAL_GPIO_PULL:
       self -> _pull = (U8) va_arg(*app, int);
       break;
-     case GPIO_SET:
+     case lwHAL_GPIO_SET:
       v = va_arg(*app, int);
       cpp = (struct Gpio *)(_self);
       assert((* cpp) -> set);
@@ -67,13 +67,13 @@
  {
    struct Pin * self = _self;
    // get the pin object pointer and toggle the _value.
-   struct Gpio * cp = (struct Gpio *)(self->_func);
+   struct Gpio * cp = (struct Gpio *)(self->_link_func);
    //const struct Gpio * const * cp = (struct Gpio *)(self->_func);
-   if ((( cp) -> _mode & 0x3) == GPIO_MODE_OUTPUT) {
+   if ((( cp) -> _mode & 0x3) == lwHAL_GPIO_MODE_OUTPUT) {
      self->_value = (self->_value>0) ? 0 : 1;
-     const struct Gpio * const * cpp = (struct Gpio *)(self->_func);
+     const struct Gpio * const * cpp = (struct Gpio *)(self->_link_func);
      assert((* cpp) -> toggle);
-      (* cpp) -> toggle(self->_func);
+      (* cpp) -> toggle(self->_link_func);
    }
 
    //= va_arg(ap, (struct Pin *));

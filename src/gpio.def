@@ -24,8 +24,9 @@ struct Gpio {
   U8 _mode;
   U8 _speed;
   U8 _pull;
-  U32 * _gpio_addr;
-  U32 _pin;
+  WBSIZE _pin;
+  const void * _gpio_addr;
+
 };
 
 #endif /* lwHAL_GPIO_DEF */

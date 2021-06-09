@@ -27,9 +27,9 @@
    /* Set pin_A1 as a GPIO output and toggle it */
 
    void * gpio_A1 = new(stm32f4_Gpio);
-   write(gpio_A1, GPIO_MODE,  GPIO_MODE_OUTPUT | GPIO_TYPE_PP);
-   write(gpio_A1, GPIO_SPEED, GPIO_SPEED_LOW);
-   write(gpio_A1, GPIO_PULL, GPIO_PULL_NOPULL);
+   write(gpio_A1, lwHAL_GPIO_MODE,  lwHAL_GPIO_MODE_OUTPUT | lwHAL_GPIO_TYPE_PP);
+   write(gpio_A1, lwHAL_GPIO_SPEED, lwHAL_GPIO_SPEED_LOW);
+   write(gpio_A1, lwHAL_GPIO_PULL, lwHAL_GPIO_PULL_NOPULL);
 
    write(pin_A1, 1);
 
@@ -37,11 +37,10 @@
    printf("\n !> value of pin: %d", read(pin_A1));
 
 
-
    link(pin_A1, gpio_A1); // is the initialization between the peripheral and the phy pin.
    write(pin_A1,1); // which is equivalent to write(gpio_A1,GPIO_STATE,1);
 
-   void * gpio_A2 = new(stm32f4_Gpio, GPIO_MODE_INPUT, GPIO_SPEED_LOW, GPIO_PULL_NOPULL);
+   void * gpio_A2 = new(stm32f4_Gpio, lwHAL_GPIO_MODE_INPUT, lwHAL_GPIO_SPEED_LOW, lwHAL_GPIO_PULL_NOPULL);
    link(pin_A2, gpio_A2);
    //write(pin_A2, 0); // it is not making any effect
    int v_A2  = read(pin_A2);

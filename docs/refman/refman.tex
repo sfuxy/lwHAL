@@ -32,6 +32,31 @@
 
 \section{light-weight Hardware Abstration Layer - lwHAL}
 
+\newpage
+
+\section{Target ports}
+\subsection{STM32F4xx}
+We tested the lwHAL on the STM NUCLEO-F429ZI development board. The test consists
+in turning the red LED on and then toggling at every second the green LED on the board.
+
+We initialized a new project for the NUCLEO-F429ZI from the STM IDE, setting
+with default configuration. Then we added the lwHAL folder inside the $/Core$, as
+shown in figure \ref{fig:stm_ide}.
+The $\#define$ $STM32F4xx$ must be uncommented in the $src/config.h$.
+Make sure to include the path to the lwHAL folder inside the IDE.
+
+Copy the code snippets from the
+$ports/stm32f4/stm32f4\_test.c$
+into the $main.c$.
+Compile and run the binary on the board. You will see the red LED turning on and
+the green LED blinking at a frequency of 1 Hz.
+
+\begin{figure*}[ht]
+\centering
+\includegraphics[scale=0.4]{stm_ide.png}
+%\caption{}
+\label{fig:stm_ide}
+\end{figure*}
 
 \newpage
 

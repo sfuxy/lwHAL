@@ -30,7 +30,7 @@ struct Function {
 	//const void * class;
 	const struct Class _;
 	void (* link) (const void * self);
-	const void * _pin; // link to one or more pins class
+	const void * _link_pin; // link to one or more pins class
 };
 
 // pin class
@@ -46,7 +46,7 @@ struct Pin {
   WBSIZE _value;
   int _pin;
   char _port;
-	const void * _func; // link to the function class
+	const void * _link_func; // link to the function class
 };
 
 #endif /* lwHAL_PIN_DEF */

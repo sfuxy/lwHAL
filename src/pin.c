@@ -95,9 +95,10 @@
  {
    struct Pin * self = _self;
    struct Function * func = _func;
+
    const struct Function * const * cp = _func;
-   self->_func = _func;
-   func->_pin = _self;
+   self->_link_func = _func;
+   func -> _link_pin = _self;
    //assert(self && * cp && (* cp) -> link);
    assert(* cp && (* cp) -> link);
    (* cp) -> link(_func);
@@ -153,7 +154,7 @@
  {
    struct Pin * self = _self;
 
-   // TODO: add specific read pin instructions depending on linked function 
+   // TODO: add specific read pin instructions depending on linked function
    return self->_value;
  }
 
