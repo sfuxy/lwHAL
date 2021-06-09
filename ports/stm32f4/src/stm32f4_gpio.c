@@ -31,13 +31,16 @@
    // TODO: add pin linking initialization code with GPIO specific for micro-controller port
    //uint32_t* gpio_addr = AHB1PERIPH_BASE + (port-24)*(0x0400U);
 #if defined (STM32F4xx)
-   struct Gpio * self = _self;
-   uint8_t port = (self -> _pin -> _port) - 65; // "A" ascii = 65
-   self -> _pin = self -> _pin -> _pin;
-   self -> _gpio_addr = AHB1PERIPH_BASE + port*(0x0400U);
+  struct Gpio * self = _self;
+  struct Function * fp = _self;
+  struct Pin * pp = (struct Pin *)(fp -> _link_pin);
+  uint8_t port = ((pp) -> _port) - 65; // "A" ascii = 65
+  self -> _pin = (pp) -> _pin;
+  self -> _gpio_addr = AHB1PERIPH_BASE + port*(0x0400U);
 
-   uint32_t pin = self -> _pin;
-   uint32_t * gpio_addr = self -> _gpio_addr;
+  uint32_t pin = (uint32_t) self -> _pin;
+  //uint32_t * gpio_addr = self -> _gpio_addr;
+  GPIO_TypeDef* gpio_addr = (GPIO_TypeDef *) self -> _gpio_addr;
 
    RCC -> AHB1ENR       |= (1U << port); //__HAL_RCC_GPIOI_CLK_ENABLE();
 
@@ -55,11 +58,12 @@
    //printf("\n here gpio toggle stm32f4"); getchar();
 #if defined (STM32F4xx)
   struct Gpio * self = _self;
-  if ((self -> _mode & 0x3) == GPIO_MODE_OUTPUT) {
-    uint32_t pin = self -> _pin;
-    uint32_t * gpio_addr = self -> _gpio_addr;
+  if ((self -> _mode & 0x3) == lwHAL_GPIO_MODE_OUTPUT) {
+    uint32_t pin = (uint32_t) self -> _pin;
+    //uint32_t * gpio_addr = self -> _gpio_addr;
+    GPIO_TypeDef* gpio_addr = (GPIO_TypeDef *) self -> _gpio_addr;
     if (v == GPIO_PIN_SET) { gpio_addr -> BSRR = (1U << pin); }
-    else { gpio_addr -> BSRR = (uint32_t) 1U << (16U+pin) }
+    else { gpio_addr -> BSRR = (uint32_t) 1U << (16U+pin); }
   } // if GPIO_MODE_OUTPUT
 #endif
  }
@@ -71,8 +75,9 @@
 #if defined (STM32F4xx)
     //printf("\n here gpio toggle stm32f4"); getchar();
     struct Gpio * self = _self;
-    uint32_t pin = self -> _pin;
-    uint32_t * gpio_addr = self -> _gpio_addr;
+    uint32_t pin = (uint32_t) self -> _pin;
+    //uint32_t * gpio_addr = self -> _gpio_addr;
+    GPIO_TypeDef* gpio_addr = (GPIO_TypeDef *) self -> _gpio_addr;
     gpio_addr -> ODR ^= (1U << pin);
 #endif
  }
