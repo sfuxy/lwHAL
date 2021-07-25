@@ -28,7 +28,7 @@ scope of the MIT license. Those services are targeted to the extension of the lw
 - support a new micro-controller platform from a supplier,
 - integration into a micro-controller operating system or IoT platform;
 
-Please, contact the lwHAL project owner S.Furlan for your customization queries.
+Please, contact the lwHAL project owner for your customization queries.
 
 ------------------------------------------------------------------------------------
 
